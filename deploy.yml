@@ -1,0 +1,18 @@
+---
+- name: Deploy Calculator
+  hosts: webserver
+  tasks:
+
+    - name: Pull Docker image
+      command: docker pull rohitangshu/scientific-calculator:latest
+
+    - name: Stop container
+      command: docker stop scientific-calculator
+      ignore_errors: yes
+
+    - name: Remove container
+      command: docker rm scientific-calculator
+      ignore_errors: yes
+
+    - name: Run container
+      command: docker run -itd --name scientific-calculator rohitangshu/scientific-calculator:latest
