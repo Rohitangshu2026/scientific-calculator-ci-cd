@@ -63,4 +63,21 @@ public class CalculatorTest {
             Calculator.squareRoot(-4);
         });
     }
+
+    @Test
+    void testNaturalLog(){
+        assertEquals(1, Calculator.naturalLog(Math.E), 0.0001);
+    }
+
+    @Test
+    void testNaturalLogOne(){
+        assertEquals(0, Calculator.naturalLog(1), 0.0001);
+    }
+
+    @Test
+    void testNaturalLogNegative(){
+        assertThrows(ArithmeticException.class, () -> {
+            Calculator.naturalLog(-1);
+        });
+    }
 }

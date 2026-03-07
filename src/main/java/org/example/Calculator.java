@@ -33,6 +33,13 @@ public class Calculator {
         return Math.pow(base, exponent);
     }
 
+    public static double naturalLog(double num){
+        if(num <= 0){
+            throw new ArithmeticException("Error: Log of non-positive number");
+        }
+        return Math.log(num);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
@@ -53,7 +60,8 @@ public class Calculator {
              4) Divide
              5) Square Root
              6) Exponent
-             7) Exit
+             7) Natural Log
+             8) Exit
             -------------------------------------------------
             """);
             System.out.print(">>> Enter your choice: ");
@@ -65,7 +73,7 @@ public class Calculator {
             }
 
             int choice = scanner.nextInt();
-            if(choice == 7){
+            if(choice == 8){
                 System.out.println("Exiting calculator...");
                 break;
             }
@@ -96,6 +104,9 @@ public class Calculator {
                         break;
                     case 6:
                         result = exponent(num1, num2);
+                        break;
+                    case 7:
+                        result = naturalLog(num1);
                         break;
                     default:
                         System.out.println("Error: Invalid choice");
