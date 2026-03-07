@@ -40,6 +40,20 @@ public class Calculator {
         return Math.log(num);
     }
 
+    public static double factorial(int num){
+        if(num < 0){
+            throw new ArithmeticException("Error: Factorial of negative number");
+        }
+
+        double result = 1;
+
+        for(int i = 1; i <= num; i++){
+            result *= i;
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
@@ -61,7 +75,8 @@ public class Calculator {
              5) Square Root
              6) Exponent
              7) Natural Log
-             8) Exit
+             8) Factorial
+             9) Exit
             -------------------------------------------------
             """);
             System.out.print(">>> Enter your choice: ");
@@ -73,12 +88,12 @@ public class Calculator {
             }
 
             int choice = scanner.nextInt();
-            if(choice == 8){
+            if(choice == 9){
                 System.out.println("Exiting calculator...");
                 break;
             }
             try {
-                System.out.print(">>> Enter first number: ");
+                System.out.print(">>> Enter number: ");
                 double num1 = scanner.nextDouble();
                 double num2 = 0;
                 if((choice >= 1 && choice <= 4) || choice == 6){
@@ -107,6 +122,9 @@ public class Calculator {
                         break;
                     case 7:
                         result = naturalLog(num1);
+                        break;
+                    case 8:
+                        result = factorial((int) num1);
                         break;
                     default:
                         System.out.println("Error: Invalid choice");

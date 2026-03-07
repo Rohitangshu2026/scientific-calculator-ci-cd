@@ -80,4 +80,21 @@ public class CalculatorTest {
             Calculator.naturalLog(-1);
         });
     }
+
+    @Test
+    void testFactorial(){
+        assertEquals(120, Calculator.factorial(5));
+    }
+
+    @Test
+    void testFactorialZero(){
+        assertEquals(1, Calculator.factorial(0));
+    }
+
+    @Test
+    void testFactorialNegative(){
+        assertThrows(ArithmeticException.class, () -> {
+            Calculator.factorial(-3);
+        });
+    }
 }
