@@ -82,14 +82,35 @@ pipeline {
 
         success {
             mail to: 'rbose2002@gmail.com',
-            subject: "SUCCESS: Scientific Calculator CI/CD Pipeline",
-            body: "Build completed successfully and deployed."
+            subject: "SUCCESS: Scientific Calculator CI/CD Pipeline - Build #${env.BUILD_NUMBER}",
+            body: """
+                Build completed successfully.
+
+                Project: Scientific Calculator CI/CD
+                Build Number: ${env.BUILD_NUMBER}
+                Status: SUCCESS
+
+                View build details:
+                ${env.BUILD_URL}
+                """
         }
 
         failure {
             mail to: 'rbose2002@gmail.com',
-            subject: "FAILURE: Scientific Calculator CI/CD Pipeline",
-            body: "Pipeline failed. Please check Jenkins logs."
+            subject: "FAILURE: Scientific Calculator CI/CD Pipeline - Build #${env.BUILD_NUMBER}",
+            body: """
+                Build FAILED.
+
+                Project: Scientific Calculator CI/CD
+                Build Number: ${env.BUILD_NUMBER}
+                Status: FAILURE
+
+                Check console output for error:
+                ${env.BUILD_URL}console
+
+                Test Report:
+                ${env.BUILD_URL}testReport
+                """
         }
 
         always {
