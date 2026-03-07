@@ -23,7 +23,10 @@ public class Calculator {
     }
 
     public static double squareRoot(double num){
-        return num;   // intentionally wrong to test email notification when tests fail
+        if(num < 0){
+            throw new ArithmeticException("Square root of negative number");
+        }
+        return Math.sqrt(num);
     }
 
     public static double exponent(double base, double exponent){
