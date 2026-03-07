@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public static double exponent(double base, double exponent){
-        return base * exponent;   // intentionally wrong to test email notification when tests fail
+        return Math.pow(base, exponent);
     }
 
     public static void main(String[] args) {
