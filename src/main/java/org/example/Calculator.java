@@ -17,14 +17,14 @@ public class Calculator {
 
     public static double divide(double num1, double num2){
         if(num2 == 0){
-            throw new ArithmeticException("Error: Division by zero");
+            throw new ArithmeticException("Division by zero");
         }
         return num1 / num2;
     }
 
     public static double squareRoot(double num){
         if(num < 0){
-            throw new ArithmeticException("Error: Square root of negative number");
+            throw new ArithmeticException("Square root of negative number");
         }
         return Math.sqrt(num);
     }
@@ -35,14 +35,14 @@ public class Calculator {
 
     public static double naturalLog(double num){
         if(num <= 0){
-            throw new ArithmeticException("Error: Log of non-positive number");
+            throw new ArithmeticException("Log of non-positive number");
         }
         return Math.log(num);
     }
 
     public static double factorial(int num){
         if(num < 0){
-            throw new ArithmeticException("Error: Factorial of negative number");
+            throw new ArithmeticException("Factorial of negative number");
         }
 
         double result = 1;
