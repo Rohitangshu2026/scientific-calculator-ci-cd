@@ -46,4 +46,21 @@ public class CalculatorTest {
     void testPowerNegativeExponent(){
         assertEquals(0.25, Calculator.exponent(2,-2));
     }
+
+    @Test
+    void testSquareRoot(){
+        assertEquals(4, Calculator.squareRoot(16));
+    }
+
+    @Test
+    void testSquareRootZero(){
+        assertEquals(0, Calculator.squareRoot(0));
+    }
+
+    @Test
+    void testSquareRootNegative(){
+        assertThrows(ArithmeticException.class, () -> {
+            Calculator.squareRoot(-4);
+        });
+    }
 }

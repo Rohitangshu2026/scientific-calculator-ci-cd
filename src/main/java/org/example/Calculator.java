@@ -17,9 +17,16 @@ public class Calculator {
 
     public static double divide(double num1, double num2){
         if(num2 == 0){
-            throw new ArithmeticException("Division by zero");
+            throw new ArithmeticException("Error: Division by zero");
         }
         return num1 / num2;
+    }
+
+    public static double squareRoot(double num){
+        if(num < 0){
+            throw new ArithmeticException("Error: Square root of negative number");
+        }
+        return Math.sqrt(num);
     }
 
     public static double exponent(double base, double exponent){
@@ -44,8 +51,9 @@ public class Calculator {
              2) Subtract
              3) Multiply
              4) Divide
-             5) Exponent
-             6) Exit
+             5) Square Root
+             6) Exponent
+             7) Exit
             -------------------------------------------------
             """);
             System.out.print(">>> Enter your choice: ");
@@ -57,15 +65,18 @@ public class Calculator {
             }
 
             int choice = scanner.nextInt();
-            if(choice == 6){
+            if(choice == 7){
                 System.out.println("Exiting calculator...");
                 break;
             }
             try {
                 System.out.print(">>> Enter first number: ");
                 double num1 = scanner.nextDouble();
-                System.out.print(">>> Enter second number: ");
-                double num2 = scanner.nextDouble();
+                double num2 = 0;
+                if((choice >= 1 && choice <= 4) || choice == 6){
+                    System.out.print(">>> Enter second number: ");
+                    num2 = scanner.nextDouble();
+                }
                 double result;
                 switch (choice){
                     case 1:
@@ -81,10 +92,13 @@ public class Calculator {
                         result = divide(num1, num2);
                         break;
                     case 5:
+                        result = squareRoot(num1);
+                        break;
+                    case 6:
                         result = exponent(num1, num2);
                         break;
                     default:
-                        System.out.println("Invalid choice");
+                        System.out.println("Error: Invalid choice");
                         continue;
                 }
                 System.out.println("-------------------------------------------------");
