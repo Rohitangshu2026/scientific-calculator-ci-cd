@@ -56,6 +56,7 @@ public class Calculator {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
         System.out.println("""
         =================================================
                       SCIENTIFIC CALCULATOR
@@ -88,6 +89,12 @@ public class Calculator {
             }
 
             int choice = scanner.nextInt();
+
+            if(choice <= 0 || choice > 9){
+                System.out.println("Error: Invalid choice. Please try again.\n");
+                continue;
+            }
+
             if(choice == 9){
                 System.out.println("Exiting calculator...");
                 break;
