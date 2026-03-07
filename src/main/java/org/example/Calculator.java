@@ -22,6 +22,10 @@ public class Calculator {
         return num1 / num2;
     }
 
+    public static double exponent(double base, double exponent){
+        return Math.pow(base, exponent);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
@@ -40,7 +44,8 @@ public class Calculator {
              2) Subtract
              3) Multiply
              4) Divide
-             5) Exit
+             5) Exponent
+             6) Exit
             -------------------------------------------------
             """);
             System.out.print(">>> Enter your choice: ");
@@ -52,7 +57,7 @@ public class Calculator {
             }
 
             int choice = scanner.nextInt();
-            if(choice == 5){
+            if(choice == 6){
                 System.out.println("Exiting calculator...");
                 break;
             }
@@ -74,6 +79,9 @@ public class Calculator {
                         break;
                     case 4:
                         result = divide(num1, num2);
+                        break;
+                    case 5:
+                        result = exponent(num1, num2);
                         break;
                     default:
                         System.out.println("Invalid choice");

@@ -31,4 +31,19 @@ public class CalculatorTest {
             Calculator.divide(10,0);
         });
     }
+
+    @Test
+    void testExponent(){
+        assertEquals(8, Calculator.exponent(2,3));
+    }
+
+    @Test
+    void testPowerZeroExponent(){
+        assertEquals(1, Calculator.exponent(5,0));
+    }
+
+    @Test
+    void testPowerNegativeExponent(){
+        assertEquals(0.25, Calculator.exponent(2,-2));
+    }
 }
