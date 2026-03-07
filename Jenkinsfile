@@ -101,9 +101,6 @@ pipeline {
 
                 Check console output for error:
                 ${env.BUILD_URL}console
-
-                Test Report:
-                ${env.BUILD_URL}testReport
                 """
         }
 
