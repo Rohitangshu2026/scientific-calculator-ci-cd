@@ -29,11 +29,10 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-        }
-
-        stage('Publish Test Results') {
-            steps {
-                junit 'target/surefire-reports/*.xml'
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
 
