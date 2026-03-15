@@ -12,28 +12,21 @@ pipeline {
 
     stages {
 
-        stage('Checkout Source Code') {
-            steps {
-                git branch: 'main',
-                    url: "${GITHUB_REPO}"
-            }
-        }
-
         stage('Build Application') {
             steps {
                 sh 'mvn clean package -DskipTests'
             }
         }
 
-        stage('Run Unit Tests') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-
         stage('Verify Build Artifact') {
             steps {
                 sh 'ls -lh target/'
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                sh 'mvn test'
             }
         }
 
