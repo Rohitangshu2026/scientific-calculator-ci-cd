@@ -18,15 +18,15 @@ pipeline {
             }
         }
 
-        stage('Verify Build Artifact') {
-            steps {
-                sh 'ls -lh target/'
-            }
-        }
-
         stage('Run Unit Tests') {
             steps {
                 sh 'mvn test'
+            }
+        }
+
+        stage('Verify Build Artifact') {
+            steps {
+                sh 'ls -lh target/'
             }
         }
 
